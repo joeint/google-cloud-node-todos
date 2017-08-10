@@ -1,26 +1,33 @@
 # google-cloud-node-todos
-> [TodoMVC](http://todomvc.com) backend using [google-cloud-node](//github.com/GoogleCloudPlatform/google-cloud-node).
-
-[![Build Status](https://travis-ci.org/GoogleCloudPlatform/gcloud-node-todos.svg?branch=master)](https://travis-ci.org/GoogleCloudPlatform/gcloud-node-todos)
+> [TodoMVC](http://todomvc.com) backend using [google-cloud-node](//github.com/GoogleCloudPlatform/google-cloud-node) & Cloud Spanner database.
 
 ## Prerequisites
 
 1. Create a new cloud project on [console.developers.google.com](http://console.developers.google.com)
-2. [Enable the Google Cloud Datastore API](https://console.developers.google.com/flows/enableapi?apiid=datastore). For more information about the Cloud Datastore, see [here](https://developers.google.com/datastore).
-3. Create a new service account and copy the JSON credentials to `key.json`
-4. Export your project id:
+2. [Enable the Google Cloud Spanner API](https://console.developers.google.com/flows/enableapi?apiid=spanner). For more information about the Cloud Spanner, see [here](https://cloud.google.com/spanner/).
+3. Export your spanner instance id:
+    ```sh
+    $ export SPANNER_ID=todo-spanner
+    ```    
+4. Create a new spanner instance
+    ```sh
+    $ gcloud spanner instances create $SPANNER_ID --config=regional-us-central1 --description="Todo Spanner" --nodes=1
+    ```
+5. Create the database
+    ```sh
+    $ gcloud spanner databases create tododb --instance=$SPANNER_ID
+    ```
+6. Create a new service account and copy the JSON credentials to `key.json`
+7. Export your project id:
 
     ```sh
     $ export PROJECT_ID=<project id>
     ```
 
+
 ## Running
 
 #### Locally
-```sh
-# Set your default Dataset
-$ export DATASET_ID=$PROJECT_ID
-
 # Install the dependencies
 $ npm install
 
