@@ -5,7 +5,7 @@ var express = require('express');
 var todomvc = require('todomvc');
 var todomvcApi = require('todomvc-api');
 
-var todos = require('./todos.js');
+var todos = require('./todosSpanner.js');
 
 var app = module.exports.app = express();
 var api = module.exports.api = express();
@@ -74,39 +74,6 @@ function _handleApiResponse(res, successStatus) {
   };
 }
 
+
 // Configure the sidebar to display relevant links for our hosted version of TodoMVC.
-todomvc.learnJson = {
-  name: 'Google Cloud Platform',
-  description: 'Google Cloud Platform is now available via Node.js with google-cloud-node.',
-  homepage: 'http://cloud.google.com/solutions/nodejs',
-  examples: [
-    {
-      name: 'google-cloud-node + Express',
-      url: 'https://github.com/GoogleCloudPlatform/gcloud-node-todos'
-    }
-  ],
-  link_groups: [
-    {
-      heading: 'Official Resources',
-      links: [
-        {
-          name: 'google-cloud-node',
-          url: 'https://github.com/GoogleCloudPlatform/google-cloud-node'
-        },
-        {
-          name: 'Google Cloud Datastore',
-          url: 'https://cloud.google.com/datastore/docs'
-        }
-      ]
-    },
-    {
-      heading: 'Community',
-      links: [
-        {
-          name: 'google-cloud-node on Stack Overflow',
-          url: 'http://stackoverflow.com/questions/tagged/google-cloud-node'
-        }
-      ]
-    }
-  ]
-};
+todomvc.learnJson = {};

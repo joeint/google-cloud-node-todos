@@ -5,6 +5,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@google-cloud/datastore": "^0.8.0",
+    "@google-cloud/spanner": "^0.7.1",
     "body-parser": "^1.4.3",
     "express": "^4.5.1",
     "todomvc": "^0.1.0",
