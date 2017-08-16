@@ -17,8 +17,12 @@
     ```sh
     $ gcloud spanner databases create tododb --instance=$SPANNER_ID
     ```
-6. Create a new service account and copy the JSON credentials to `key.json`
-7. Export your project id:
+6. Create the table
+    ```sh
+    $ gcloud spanner databases ddl update tododb --instance=todo-spanner --ddl='CREATE TABLE Todo (id INT64 NOT NULL, completed BOOL, title STRING(MAX),) PRIMARY KEY (id)'
+    ```
+7. Create a new service account and copy the JSON credentials to `key.json`
+8. Export your project id:
 
     ```sh
     $ export PROJECT_ID=<project id>
